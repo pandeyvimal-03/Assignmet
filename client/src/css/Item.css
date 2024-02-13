@@ -1,0 +1,36 @@
+
+
+
+.item{
+    padding: 20px;
+    border: 1px solid grey;
+    border-radius: 6px;
+    background-color: rgb(112, 182, 239);
+    margin: 20px;
+    font-weight: bolder;
+    color: rgb(51, 46, 46);
+    
+}
+.pname{
+    font-size: 20px;
+    
+    padding: 5px;
+}
+.category{
+    font-size: 16px;
+    padding: 5px;
+}
+.price{
+    font-size: 18px;
+    padding: 5px;
+}
+.buy{
+    margin: auto;
+    padding: 8px 10px;
+    border-style: none;
+    border: 1px solid grey;
+    border-radius: 6px;
+    width: 80px;
+    cursor: pointer;
+    background-color: rgb(214, 216, 218);
+}

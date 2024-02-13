@@ -1,0 +1,58 @@
+.header{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    background-color: rgb(111, 178, 245);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.logo{
+    font-size: 20px;
+    font-weight: bolder;
+    
+}
+.menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-weight: bolder;
+}
+.menu li{
+
+    list-style: none;
+    padding: 0 10px;
+}
+.menu li a {
+    text-decoration: none;
+    color: black;
+    padding: 0 10px;
+}
+.log{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.logIn a{
+    text-decoration: none;
+    color: black;
+    border: 0.5px solid grey;
+    padding: 8px 15px;
+}
+.signUp{
+  
+    margin: 0 10px;
+}
+.signUp a{
+    text-decoration: none;
+    color: black;
+    border: 0.5px solid grey;
+    padding: 8px 15px;
+}
