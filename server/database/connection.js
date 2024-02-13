@@ -1,5 +1,7 @@
 const mongoose = require('mongoose')
-const mongo_url = 'mongodb://127.0.0.1:27017/Assignment'
+  const mongo_url = 'mongodb://127.0.0.1:27017/Assignment'
+    
+
 
  mongoose.connect(mongo_url , {
     useNewUrlParser : true,

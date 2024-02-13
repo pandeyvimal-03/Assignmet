@@ -1,9 +1,10 @@
 const jwt = require('jsonwebtoken')
 
 const authenticate = async (req, res, next) => {
-      const key = "vimal"
+       const key = "vimal"
+    
       const token = req.cookies.token;
-    //  const token = req.header('auth-token')
+    
     
     console.log(token)
 

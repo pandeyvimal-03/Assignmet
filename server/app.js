@@ -9,8 +9,8 @@ const db = require('./database/connection')
 const myOrders = require('./routes/myOrders')
 const addOrder = require('./routes/addOrder')
 const getdata = require('./routes/getData')
-
-const PORT = process.env.PORT || 8000
+console.log(process.env.DB_HOST)
+const PORT = 8000
 // using middlewares
  app.use(express.static('public'))
  app.use(express.json())

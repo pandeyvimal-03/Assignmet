@@ -16,7 +16,8 @@ const hash = async (req) => {
 
 const createToken = async (user) => {
 
-    const key = "vimal"
+    // const key = "vimal"
+    const key = process.env.TOKEN
     data = {
         id: user.id,
       
