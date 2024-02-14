@@ -9,7 +9,7 @@ const db = require('./database/connection')
 const myOrders = require('./routes/myOrders')
 const addOrder = require('./routes/addOrder')
 const getdata = require('./routes/getData')
-console.log(process.env.DB_HOST)
+
 const PORT = 8000
 // using middlewares
  app.use(express.static('public'))
@@ -19,7 +19,7 @@ const PORT = 8000
 
 
  app.use(cors({
-    origin: [ 'http://localhost:65189'],
+    origin: [ 'http://localhost:60461'],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE'] 
 }));

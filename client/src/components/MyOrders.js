@@ -11,7 +11,7 @@ function MyOrders() {
     const [orders , setOrders] = useState([])
 
     const fetchOrders = async ()=>{
-              console.log("fetching the data")
+              
         try {
             const res = await fetch("http://localhost:8000/myOrders" , {
                 method : "GET",
@@ -36,15 +36,15 @@ function MyOrders() {
     }
 
     useEffect(()=>{
-
+        console.log(logedIn)
         if(!logedIn){
            
             navigate('/login')
         }
         else{
-
+              console.log(countOrder)
             if(countOrder > 0){
-                
+                console.log("we are going to fetch data")
                 fetchOrders();
             }
             else{
@@ -62,8 +62,8 @@ function MyOrders() {
             <h1>Your Orders: { orders.length || countOrder}</h1>
             {orders && (
                
-               orders.map((e)=>{
-                return <Items key={e.user} data={e} />
+               orders.map((e ,i)=>{
+                return <Items key={i} data={e} />
                })
                
             )}

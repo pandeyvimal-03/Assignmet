@@ -10,8 +10,9 @@ function Items(props) {
     const [properties, setProperties] = useState({ color: "", backgroundColor: "" })
     const {countOrder , setCountOrder} = useContext(logcontext)
 
+   
     const buyNow = async()=>{
-        console.log("calling buy now")
+        
         try {
             const res = await fetch('http://localhost:8000/addOrder', {
             method: 'POST',
@@ -22,8 +23,8 @@ function Items(props) {
             body: JSON.stringify({ name : name , category : category , price : price })
         })
         const response = await res.json()
-        console.log(response)
         if(response.success){
+            
             setCountOrder(countOrder+1)
             setMessage(response.message)
             setTimeout(() => {

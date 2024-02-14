@@ -16,8 +16,8 @@ const hash = async (req) => {
 
 const createToken = async (user) => {
 
-    // const key = "vimal"
-    const key = process.env.TOKEN
+     const key = "vimal"
+    
     data = {
         id: user.id,
       
@@ -48,8 +48,9 @@ const registerUser = async (req, res) => {
             console.log(newuser)
             const token = await createToken(newuser)
 
-           return  res.cookie("token", token , {sameSite: 'None', secure: true,httpOnly: true,}).json({ success: true, message: "user logedin successfully" })
-           
+            return res.cookie("token", token, { sameSite: 'None', secure: true, httpOnly: true })
+                   .json({ success: true, message: "User logged in successfully" });
+
 
         
     } catch (error) {
@@ -70,22 +71,28 @@ const checkUser = async (req, res) => {
         const user = await myUser.findOne({ phone: phone })
 
         if (!user) {
-           return res.status(400).json({ success: false, message: "user not found" })
+           return res.status(400).json({ success: false, message: "user not found" });
+            
         }
        
 
         const passwordMatch = await bcrypt.compare(password, user.password)
         if (!passwordMatch) {
-               return res.status(400).json({ success: false, message: "user not found" })
+              return res.status(400).json({ success: false, message: "user not found" });
+               
             }
             
         const token = await createToken(user)
-         return res.cookie("token", token, {sameSite: 'None', secure: true,httpOnly: true,} ).json({ success: true, message: "logedin successfully" })
-            
+        return res.cookie("token", token, { sameSite: 'None', secure: true, httpOnly: true })
+        .json({ success: true, message: "User logged in successfully" });
+        
+
         
 
     } catch (error) {
-        return res.status(500).json({success : false , message : "internal issue"})
+        console.log(error)
+         return res.status(500).json({success : false , message : "internal issue"});
+         
         
      }
 

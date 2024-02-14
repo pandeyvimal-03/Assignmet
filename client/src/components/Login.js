@@ -26,6 +26,7 @@ function Login() {
                 })
 
                 const response = await res.json();
+                console.log("our resoponse is : ",response)
                 if (response.success) {
                     setCredentials({ ...credentials,  phone: "", password: "" })
                     setLogedIn(true)
@@ -59,7 +60,7 @@ function Login() {
     <div className="loginPage">
          <div className='login'>
         {message && <Notify message={message} color={properties.color } backgroundColor={properties.backgroundColor} />}
-        <h3>Login to use <span>V-Notes</span></h3>
+        <h3>Login to use <span>V-Commerce</span></h3>
         <form className='form' onSubmit={formSubmit}>
             <input type="tel" name="phone" id="phone" placeholder='Enter your phone' onChange={change}/>
             <input type="password" name="password" id="password" placeholder='Enter your password'onChange={change} />

@@ -14,7 +14,7 @@ router.post('/', validate ,  (req, res)=>{
 const errors = validationResult(req)
 
 if(!errors.isEmpty()){
-    res.status(400).json({success:false , message: "enter valid credentials", errors : errors})
+   return res.status(400).json({success:false , message: "enter valid credentials", errors : errors})
 }
 
 user.registerUser(req, res)
