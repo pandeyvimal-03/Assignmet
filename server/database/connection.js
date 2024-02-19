@@ -1,5 +1,9 @@
 const mongoose = require('mongoose')
-  const mongo_url = 'mongodb://127.0.0.1:27017/Assignment'
+const dotenv = require('dotenv')
+  dotenv.config()
+
+
+const mongo_url = process.env.MONGO_URL
     
 
 

@@ -8,3 +8,10 @@
     margin-top: 20px;
    
 }
+@media  screen and (max-width : 550px) {
+    .products {
+        width: 80%;
+        flex-direction: column;
+    }
+    
+}

@@ -3,11 +3,12 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const myUser = require('../database/models/myUser')
 
+const dotenv = require('dotenv')
+dotenv.config()
+  
 
 const hash = async (req) => {
 
-
-    console.log(req.body.password)
     const salt = await bcrypt.genSalt(10);
     const newPassword = await bcrypt.hash(req.body.password, salt)
     return newPassword;
@@ -16,7 +17,7 @@ const hash = async (req) => {
 
 const createToken = async (user) => {
 
-     const key = "vimal"
+     const key = process.env.TOKEN
     
     data = {
         id: user.id,
@@ -43,9 +44,7 @@ const registerUser = async (req, res) => {
         }
        
             const hashPassword = await hash(req);
-            console.log(hashPassword)
             newuser = await myUser.create({ Username: name, phone: phone, password: hashPassword })
-            console.log(newuser)
             const token = await createToken(newuser)
 
             return res.cookie("token", token, { sameSite: 'None', secure: true, httpOnly: true })
@@ -54,7 +53,7 @@ const registerUser = async (req, res) => {
 
         
     } catch (error) {
-         console.log(error)
+         
        return res.status(500).json({success : false , message : "internal issue"})
         
     }
@@ -90,11 +89,10 @@ const checkUser = async (req, res) => {
         
 
     } catch (error) {
-        console.log(error)
+        
          return res.status(500).json({success : false , message : "internal issue"});
          
-        
-     }
+    }
 
 }
 

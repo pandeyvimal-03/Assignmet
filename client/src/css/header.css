@@ -7,6 +7,7 @@
     color: black;
     background-color: rgb(111, 178, 245);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: relative;
 }
 
 .logo{
@@ -14,12 +15,18 @@
     font-weight: bolder;
     
 }
+.section2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .menu{
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 15px;
     font-weight: bolder;
+    margin-right: 30px;
 }
 .menu li{
 
@@ -44,10 +51,10 @@
     text-decoration: none;
     color: black;
     border: 0.5px solid grey;
-    padding: 8px 15px;
+    padding: 8px 18px;
 }
 .signUp{
-  
+   
     margin: 0 10px;
 }
 .signUp a{
@@ -55,4 +62,109 @@
     color: black;
     border: 0.5px solid grey;
     padding: 8px 15px;
+}
+.hamburger{
+    display: none;
+}
+.hamburger div{
+    height: 4px;
+    width: 48px;
+    background-color: white;
+    margin: 5px;
+}
+@media  screen and (max-width : 550px) {
+    .header{
+        position: sticky;
+        top: 0;
+        left: 0;
+    }
+    .logo{
+        font-size: 27px;
+        margin-left: 20px;
+        color: rgb(254, 254, 254);
+    }
+    .hamburger{
+        display: block;
+    }
+    .section2{
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        position: fixed;
+        background-color: rgb(111, 178, 245,0.9);
+        right: 0;
+        top: 55px;
+        height: 95vh;
+        width: 100%;
+        z-index: 1;
+        animation: hamburgerSlide 0.5s ;
+        display: none;
+    }
+    @keyframes hamburgerSlide {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(0%);
+        }
+        
+    }
+    .menu{
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: start;
+        height: auto;
+        width: 100%;
+        
+       
+    }
+    .menu li{
+       
+        border-width: 0px 0px 1px 0px;
+        border-color: black;
+        border-style: solid;
+        width: 80%;
+        padding: 15px 0px;
+        margin: 10px 0;
+    }
+    .menu li a {
+        color: white;
+        font-size: 20px;
+    }
+    .log{
+       flex-direction: column;
+       justify-content: start;
+       align-items: start;
+       height: auto;
+       width: 100%;
+    
+
+    }
+    .logIn {
+       
+        height: auto;
+        padding: 5vw 2vw;
+        width: 80%;
+    }
+    .logIn a{
+        background-color: white;
+        color: black;
+        font-size: 18px;
+        padding: 8px 25px;
+    }
+    .signUp{
+       
+        height: auto;
+        padding: 5vw 2vw;
+        margin: 0;
+        width: 80%;
+    }
+   
+    .signUp a{
+        background-color: white;
+        color: black;
+        font-size: 18px;
+        padding: 8px 20px;
+    }
+   
 }

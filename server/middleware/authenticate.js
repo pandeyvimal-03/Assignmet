@@ -1,13 +1,12 @@
 const jwt = require('jsonwebtoken')
+const dotenv = require('dotenv')
+  dotenv.config()
+  
 
 const authenticate = async (req, res, next) => {
-       const key = "vimal"
+       const key = process.env.TOKEN
+       const token = req.cookies.token;
     
-      const token = req.cookies.token;
-    
-    
-    console.log(token)
-
     if (!token) {
        return res.status(400).json({ success: false, message: " user not hai authenticated" })
     }
@@ -15,9 +14,8 @@ const authenticate = async (req, res, next) => {
     try {
 
         const user = jwt.verify(token, key)
-        console.log(user)
         req.user = user;
-        console.log("we are coming in authenticat")
+        
         next();
 
     } catch (error) {

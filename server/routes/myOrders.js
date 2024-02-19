@@ -11,7 +11,7 @@ router.get('/', async(req, res)=>{
         res.status(200).json({success : true , message : "Your order is ready" , orders : orders})
 
     } catch (error) {
-        console.log(error)
+        
         return res.status(500).json({success: false , message : "Unable to fetch due to internal issues"})
     }
   

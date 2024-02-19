@@ -9,9 +9,13 @@ const db = require('./database/connection')
 const myOrders = require('./routes/myOrders')
 const addOrder = require('./routes/addOrder')
 const getdata = require('./routes/getData')
+const dotenv = require('dotenv')
 
-const PORT = 8000
-// using middlewares
+  dotenv.config()
+
+ const PORT = process.env.PORT
+
+  // using middlewares
  app.use(express.static('public'))
  app.use(express.json())
  app.use(express.urlencoded({extended : false}))
@@ -19,7 +23,7 @@ const PORT = 8000
 
 
  app.use(cors({
-    origin: [ 'http://localhost:60461'],
+    origin: [ process.env.HOST],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE'] 
 }));

@@ -11,12 +11,13 @@ function Login() {
     const [properties, setProperties] = useState({ color: "", backgroundColor: "" })
 
     const {setLogedIn} = useContext(logcontext)
-
+    
+    
     const formSubmit = async(e)=>{
         e.preventDefault();
 
         try {
-                    const res = await fetch('http://localhost:8000/login-user', {
+                    const res = await fetch(`http://localhost:8000/login-user`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
